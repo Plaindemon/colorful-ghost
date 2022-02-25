@@ -9,7 +9,8 @@ const characterLength = "";
 const passwordDisplay = document.getElementById("passwordDisplay");
 // Add event listener to generate button
 document.querySelector("#generate").addEventListener("click", writePassword);
-
+// window.alert to create a window alert to notify user to select password criteria to begin
+window.alert("To generate a password, begin by adjusting the criteria needed for the password");
 console.log(letters);
 console.log(lettersUp);
 console.log(numbers);
@@ -27,8 +28,7 @@ function getInputValue() {
 // document.getElementById("getLengthResult").innerHTML =
 //   "Character Length Selected:" + getInputValue();
 
-// window.alert to create a window alert to notify user to select password criteria to begin
-// window.alert("To generate a password, begin by adjusting the criteria needed for the password");
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
@@ -89,8 +89,8 @@ function generatePassword() {
 // Write password to the #password input
 function writePassword() {
   var passwordGenerate = generatePassword();
-  var passwordText = document.querySelector("#passwordDisplay");
-  passwordText.value = passwordGenerate;
-  console.log(passwordText.value);
+  var passwordDisplayText = document.querySelector("#passwordDisplay");
+  passwordDisplayText.value = passwordGenerate;
+  console.log(passwordDisplayText.value);
   console.log(passwordGenerate);
 }
