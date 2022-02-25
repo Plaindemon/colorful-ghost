@@ -1,36 +1,47 @@
 // Assignment code here
-const characterLength = "";
+
 const letters = "abcdefghijklmnopqrstuvwxyz";
 const lettersUp = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const numbers = "1234567890";
 const symbols = '!"#$%&()*+,-./:;<=>?@[]/|^_{}~';
-const passwordDisplay = document.getElementById("passwordDisplay");
+const characterLength = "";
 
+const passwordDisplay = document.getElementById("passwordDisplay");
 // Add event listener to generate button
 document.querySelector("#generate").addEventListener("click", writePassword);
-// console.log(form.lengthValue);
-// console.log(lettersUp);
-// console.log(numbers);
-// console.log(symbols);
-// const displayResult = document.getElementById('password');
+
+console.log(letters);
+console.log(lettersUp);
+console.log(numbers);
+console.log(symbols);
 
 function getInputValue() {
   // Selecting the input element and get its value
   var lengthValue = document.getElementById("characterLength").value;
 
   // Displaying the value
-  alert(lengthValue);
+  // alert(lengthValue);
   return lengthValue;
 }
 
-document.getElementById("getLengthResult").innerHTML =
-  "Character Length Selected:" + getInputValue();
+// document.getElementById("getLengthResult").innerHTML =
+//   "Character Length Selected:" + getInputValue();
 
-const form = document.getElementById("type");
-// lengthValue.addEventListener('input', getLengthResult)
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const lengthAmount = getInputValue;
+// window.alert to create a window alert to notify user to select password criteria to begin
+// window.alert("To generate a password, begin by adjusting the criteria needed for the password");
+
+// Get references to the #generate element
+var generateBtn = document.querySelector("#generate");
+
+function generatePassword() {
+  var passwordOptions = [];
+  const form = document.getElementById("type");
+  // lengthValue.addEventListener('input', getLengthResult)
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+  });
+
+  const inputAmount = getInputValue;
   const lowercaseBox = document.getElementById("lowercase").checked;
   const uppercaseBox = document.getElementById("uppercase").checked;
   const numbersBox = document.getElementById("numbers").checked;
@@ -40,63 +51,42 @@ form.addEventListener("submit", (e) => {
   console.log(numbersBox);
   console.log(specialBox);
 
-  const password = generatePassword(
-    lengthAmount,
-    uppercaseBox,
-    lowercaseBox,
-    specialBox
-  );
-  passwordDisplay.innerText = password;
-});
-
-console.log(form);
-
-// window.alert to create a window alert to notify user to select password criteria to begin
-// window.alert("To generate a password, begin by adjusting the criteria needed for the password");
-
-// Get references to the #generate element
-var generateBtn = document.querySelector("#generate");
-
-function generatePassword(lengthAmount, lowercaseBox, uppercaseBox, numbersBox, specialBox) {
-  var passwordOptions = [];
-  
+  // passwordDisplay.innerText = password;
   if (uppercaseBox === true) {
-    passwordOptions = passwordOptions.concat(lettersUp);
+    passwordOptions = passwordOptions.concat(letters);
   }
   if (lowercaseBox === true) {
     passwordOptions = passwordOptions.concat(lettersUp);
   }
   if (specialBox === true) {
-    passwordOptions = passwordOptions.concat(lettersUp);
+    passwordOptions = passwordOptions.concat(numbers);
   }
   if (numbersBox === true) {
-    passwordOptions = passwordOptions.concat(lettersUp);
+    passwordOptions = passwordOptions.concat(symbols);
   }
   console.log(passwordOptions);
-  if (lengthAmount > 8 && lengthAmount < 138) {
-    console.log(lengthAmount);
+  if (inputAmount > 8 && inputAmount < 138) {
+    console.log(inputAmount);
     alert(" value input success");
   } else {
     alert("needs to be a value between 8 and 138 ");
   }
-  const letterResult = []
-  for (let i = 0; i < lengthAmount; i++) {
-    const characterCode =
+  const letterResult = [];
+  for (let i = 0; i < inputAmount; i++) {
+    const charCode =
       passwordOptions[Math.floor(Math.random() * passwordOptions.length)];
-      letterResult.push(String.fromCharCode(characterCode));
+    letterResult.push(String.fromCharCode(charCode));
   }
-  return letterResult.join('')
+  console.log(letterResult);
+  return letterResult.join("");
 }
-
 
 //  generatePassword();
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
+  var passwordGenerate = generatePassword();
   var passwordText = document.querySelector("#passwordDisplay");
-  passwordText.value = password;
+  passwordText.value = passwordGenerate;
   console.log(passwordText.value);
-  console.log(password);
+  console.log(passwordGenerate);
 }
-
-
