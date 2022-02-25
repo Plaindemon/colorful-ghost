@@ -34,14 +34,14 @@ function getInputValue() {
 var generateBtn = document.querySelector("#generate");
 
 function generatePassword() {
-  var passwordOptions = [];
+  var passwordOptions = "";
   const form = document.getElementById("type");
   // lengthValue.addEventListener('input', getLengthResult)
   form.addEventListener("submit", (e) => {
     e.preventDefault();
   });
 
-  const inputAmount = getInputValue;
+  const inputAmount = getInputValue();
   const lowercaseBox = document.getElementById("lowercase").checked;
   const uppercaseBox = document.getElementById("uppercase").checked;
   const numbersBox = document.getElementById("numbers").checked;
@@ -67,18 +67,22 @@ function generatePassword() {
   console.log(passwordOptions);
   if (inputAmount > 8 && inputAmount < 138) {
     console.log(inputAmount);
+    var letterResult = [];
+    for (let i = 0; i < inputAmount; i++) {
+
+      letterResult = letterResult + passwordOptions[Math.floor(Math.random() * passwordOptions.length)];
+        // letterResult.push(String.fromCharCode(charCode));
+    }
+    console.log(letterResult);
+
     alert(" value input success");
+
+    return letterResult;
   } else {
     alert("needs to be a value between 8 and 138 ");
   }
-  const letterResult = [];
-  for (let i = 0; i < inputAmount; i++) {
-    const charCode =
-      passwordOptions[Math.floor(Math.random() * passwordOptions.length)];
-    letterResult.push(String.fromCharCode(charCode));
-  }
-  console.log(letterResult);
-  return letterResult.join("");
+
+  // console.log(charCode);
 }
 
 //  generatePassword();
