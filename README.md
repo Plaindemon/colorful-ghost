@@ -2,7 +2,7 @@
  Coding Bootcamp project where the user is looking to generate a random password based on certain criteria, such as uppercas, lowercase, special characters, numbers, etc. The task was to create a code that can generate the random password for this user
 
 ## URL
-https://plaindemon.github.io/expert-eureka/
+https://plaindemon.github.io/colorful-ghost/
 ## Screenshot
 <img width="676" alt="pwgenerator" src="https://user-images.githubusercontent.com/89330268/135791128-6143c92c-d27c-472e-bc25-54794db7a03b.png">
 
